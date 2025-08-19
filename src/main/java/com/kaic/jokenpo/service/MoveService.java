@@ -1,53 +1,103 @@
 package com.kaic.jokenpo.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.kaic.jokenpo.model.Move;
 
 @Service
 public class MoveService {
 
-    int playerScore = 0;
-    int machineScore = 0;
+    private int playerScore = 0;
+    private int machineScore = 0;
 
-    // This service handles the player's move logic
+    @Autowired
+    private MachineMoveService machineMoveService;
 
-    public String playerMove(String player, Move move) {
+    public int getPlayerScore() {
+        return playerScore;
+    }
 
-        System.out.println("Player move: " + player);
-        System.out.println("Machine move: " + move);
-        System.out.println("Player score: " + playerScore);
+    public int getMachineScore() {
+        return machineScore;
+    }
 
-        if (player == move.toString()) {
-            return "Draw, try again";
-        }
-        if (player.equals("ROCK") && move == Move.SCISSORS) {
-            playerScore++;
-            return "You win! Rock crushes scissors";
-        }
-        if (player.equals("ROCK") && move == Move.PAPER) {
-            machineScore++;
-            return "You lose! Paper covers rock";
-        }
-        if (player.equals("PAPER") && move == Move.ROCK) {
-            playerScore++;
-            return "You win! Paper covers rock";
-        }
-        if (player.equals("PAPER") && move == Move.SCISSORS) {
-            machineScore++;
-            return "You lose! Scissors cut paper";
-        }
-        if (player.equals("SCISSORS") && move == Move.PAPER) {
-            playerScore++;
-            return "You win! Scissors cut paper";
-        }
-        if (player.equals("SCISSORS") && move == Move.ROCK) {
-            machineScore++;
-            return "You lose! Rock crushes scissors";
+    private void addPlayerScore() {
+        playerScore++;
+    }
 
+    private void addMachineScore() {
+        machineScore++;
+    }
+
+    public void setPlayerScore(int playerScore) {
+        this.playerScore = playerScore;
+    }
+
+    public void setMachineScore(int machineScore) {
+        this.machineScore = machineScore;
+    }
+
+    // Processes the player's move against the machine's move
+    public String play(String playerMove) {
+        Move machineMove = machineMoveService.getMachineMove();
+        return playerMove(playerMove, machineMove);
+    }
+
+    // Determines the outcome of the player's move against the machine's move
+
+    private String playerMove(String player, Move move) {
+        if (player.equals(move.toString())) {
+            return "Draw! Player: " + playerScore + " | Machine: " + machineScore;
         }
 
-        return null;
+        switch (player) {
+            case "ROCK":
+                if (move == Move.SCISSORS) {
+                    addPlayerScore();
+                    return "You win! Rock crushes scissors. Player: " + playerScore + " | Machine: " + machineScore;
+                } else {
+                    addMachineScore();
+                    return "You lose! Paper covers rock. Player: " + playerScore + " | Machine: " + machineScore;
+                }
+
+            case "PAPER":
+                if (move == Move.ROCK) {
+                    addPlayerScore();
+                    return "You win! Paper covers rock. Player: " + playerScore + " | Machine: " + machineScore;
+                } else {
+                    addMachineScore();
+                    return "You lose! Scissors cut paper. Player: " + playerScore + " | Machine: " + machineScore;
+                }
+
+            case "SCISSORS":
+                if (move == Move.PAPER) {
+                    addPlayerScore();
+                    return "You win! Scissors cut paper. Player: " + playerScore + " | Machine: " + machineScore;
+                } else {
+                    addMachineScore();
+                    return "You lose! Rock crushes scissors. Player: " + playerScore + " | Machine: " + machineScore;
+                }
+
+            default:
+                return "Invalid move!";
+        }
+
+    }
+
+    public String winner() {
+        if (getPlayerScore() == 3 || getMachineScore() == 3) {
+            if (getPlayerScore() > getMachineScore()) {
+                setPlayerScore(0);
+                setMachineScore(0);
+                return "Player is the winner!";
+            } else {
+                setMachineScore(0);
+                setPlayerScore(0);
+                return "Machine is the winner!";
+            }
+        }
+
+        return "error";
 
     }
 }
