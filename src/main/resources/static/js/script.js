@@ -1,3 +1,11 @@
+/**
+ * @file Main script for the Jokenpô game interface.
+ * @description This script handles all the user interactions, communicates with the backend API via fetch,
+ * and updates the DOM to reflect the game state.
+ * @author Kaic @yKaicNS
+ * @version 1.0
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
     const moveIcons = {
         ROCK: '<i class="fa-solid fa-hand-back-fist"></i>',
