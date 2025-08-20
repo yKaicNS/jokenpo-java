@@ -37,13 +37,10 @@ public class MoveService {
         this.machineScore = machineScore;
     }
 
-    // Processes the player's move against the machine's move
     public String play(String playerMove) {
         Move machineMove = machineMoveService.getMachineMove();
         return playerMove(playerMove, machineMove);
     }
-
-    // Determines the outcome of the player's move against the machine's move
 
     private String playerMove(String player, Move move) {
         if (player.equals(move.toString())) {

@@ -5,30 +5,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jokenpô</title>
-    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/css/meu-estilo.css}">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
 <body>
 
+    <div class="phone-container">
+        <div class="phone-screen">
 
-    <form action="/play" method="get">
+            <header class="scoreboard">
+                <div class="score-item">
+                    <h2>PLAYER</h2>
+                    <p id="playerScore">0</p>
+                </div>
+                <div class="score-item trophy">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <div class="score-item">
+                    <h2>MACHINE</h2>
+                    <p id="machineScore">0</p>
+                </div>
+            </header>
 
-        <button class="btn btn-primary move-btn" type="submit" name="move" value="ROCK">ROCK</button>
-        <button class="btn btn-primary move-btn" type="submit" name="move" value="PAPER">PAPER</button>
-        <button class="btn btn-primary move-btn" type="submit" name="move" value="SCISSORS" id="btnScissors">SCISSORS</button>
-        <p id="resultPLay"></p>
+            <main class="game-area">
+                <div id="start-text">
+                    <h2>Make your move!</h2>
+                </div>
+                <div id="result-display" class="hidden">
+                    <div class="choice-display">
+                        <p>You</p>
+                        <div id="player-choice-icon"></div>
+                    </div>
+                    <div class="result-message">
+                        <p id="round-winner-text"></p>
+                    </div>
+                    <div class="choice-display">
+                        <p>Machine</p>
+                        <div id="machine-choice-icon"></div>
+                    </div>
+                </div>
+            </main>
 
+            <footer class="player-controls">
+                <button class="move-btn" value="ROCK">
+                    <i class="fa-solid fa-hand-back-fist"></i>
+                </button>
+                <button class="move-btn" value="PAPER">
+                    <i class="fa-solid fa-hand"></i>
+                </button>
+                <button class="move-btn" value="SCISSORS">
+                    <i class="fa-solid fa-hand-scissors"></i>
+                </button>
+            </footer>
 
-    </form>
+        </div>
+    </div>
 
-    <h2>PlayerScore</h2>
-    <p id="playerScore"> </p>
-
-    <h2>MachineScore</h2>
-    <p id="machineScore">0</p>
-    <p id="result"></p>
-
+    <div id="game-over-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <i id="modal-icon" class="fa-solid fa-trophy"></i>
+            <h2 id="modal-title">You Win!</h2>
+            <p id="modal-message">Congratulations, you are the Jokenpô champion!</p>
+            <button id="play-again-btn">Play Again</button>
+        </div>
+    </div>
 
     <script src="/js/script.js"></script>
 </body>

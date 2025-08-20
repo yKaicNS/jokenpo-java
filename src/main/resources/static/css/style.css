@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+
+.phone-container {
+    width: 380px;
+    height: 800px;
+    background-color: #1c1c1e;
+    border-radius: 40px;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 5px solid #333;
+}
+
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #ffffff, #e9e9e9); 
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: #4a90e2;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.score-item {
+    text-align: center;
+}
+
+.score-item h2 {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.score-item p {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.score-item.trophy .fa-trophy {
+    font-size: 2.5rem;
+    color: #f5a623;
+}
+
+.game-area {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#start-text h2 {
+    font-size: 1.8rem;
+    color: #a0a0a0;
+}
+
+#result-display {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+.choice-display {
+    text-align: center;
+}
+
+.choice-display p {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#player-choice-icon,
+#machine-choice-icon {
+    font-size: 4rem;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.result-message {
+    text-align: center;
+}
+
+.result-message p {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+
+.player-controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+}
+
+
+.move-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.move-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+}
+
+.move-btn .fa-solid {
+    font-size: 2.5rem;
+    color: #4a90e2;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+.modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.modal-content {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s ease-in-out;
+    width: 90%;
+    max-width: 340px;
+}
+
+
+.modal-overlay.show .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+
+
+.modal-content #modal-icon {
+    font-size: 5rem;
+    margin-bottom: 15px;
+}
+
+.modal-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 700;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+
+#play-again-btn {
+    background: linear-gradient(45deg, #28a745, #228B22);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+    width: 100%;
+}
+
+#play-again-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
+}
