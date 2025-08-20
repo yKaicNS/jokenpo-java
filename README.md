@@ -9,14 +9,14 @@
 
 ### 🚀 Live Demo
 
-**[Click here to play the game!]()**
+**[Click here to play the game!](https://jokenpo-java.onrender.com/)**
 
 <details>
 <summary><strong>🇧🇷 Versão em Português</strong> (clique para expandir)</summary>
   
 ### 🚀 Demonstração ao Vivo
 
-**[Clique aqui para jogar!]()**
+**[Clique aqui para jogar!](https://jokenpo-java.onrender.com/)**
 
 </details>
 
