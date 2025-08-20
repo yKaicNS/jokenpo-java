@@ -1,3 +1,9 @@
+ /* 
+ * @author  Kaic (@yKaicNS)
+ * @version 1.0
+ * @since   2025-08-20 
+ */
+
 package com.kaic.jokenpo.service;
 
 import org.springframework.stereotype.Service;

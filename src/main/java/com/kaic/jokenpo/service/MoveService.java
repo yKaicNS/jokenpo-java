@@ -1,3 +1,12 @@
+/**
+ * Service class responsible for the core logic of the Jokenpô game.
+ * It handles player moves, determines the winner of each round, and tracks scores.
+ *
+ * @author  Kaic (@yKaicNS)
+ * @version 1.0
+ * @since   2025-08-20 
+ */
+
 package com.kaic.jokenpo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
