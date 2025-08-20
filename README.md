@@ -7,9 +7,18 @@
 
 ![Game Screenshot]()
 
-###  लाइव डेमो 🚀
+### 🚀 Live Demo
 
-**[यहां क्लिक करके गेम खेलें]()**
+**[Click here to play the game!]()**
+
+<details>
+<summary><strong>🇧🇷 Versão em Português</strong> (clique para expandir)</summary>
+  
+### 🚀 Demonstração ao Vivo
+
+**[Clique aqui para jogar!]()**
+
+</details>
 
 ---
 
