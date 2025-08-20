@@ -12,11 +12,12 @@
 <body>
 
 
-    <form action="/play" method="post">
+    <form action="/play" method="get">
 
-        <button class="btn btn-primary" type="submit" name="move" value="ROCK">ROCK</button>
-        <button class="btn btn-primary" type="submit" name="move" value="PAPER">PAPER</button>
-        <button class="btn btn-primary" type="submit" name="move" value="SCISSORS" id="btnScissors">SCISSORS</button>
+        <button class="btn btn-primary move-btn" type="submit" name="move" value="ROCK">ROCK</button>
+        <button class="btn btn-primary move-btn" type="submit" name="move" value="PAPER">PAPER</button>
+        <button class="btn btn-primary move-btn" type="submit" name="move" value="SCISSORS" id="btnScissors">SCISSORS</button>
+        <p id="resultPLay"></p>
 
 
     </form>

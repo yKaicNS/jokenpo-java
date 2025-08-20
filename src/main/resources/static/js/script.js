@@ -30,6 +30,22 @@ function updateWinner(){
  
 }
 
+document.querySelectorAll(".move-btn").forEach(button => {
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+        const move = event.target.value; 
+
+        fetch(`/play?move=${move}`)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("resultPLay").innerText = data;
+                updatePlayerScore();
+                updateMachineScore();
+            })
+            .catch(err => console.error(err));
+    });
+});
+
 
 document.addEventListener('DOMContentLoaded', updatePlayerScore);
 document.addEventListener('DOMContentLoaded', updateMachineScore);
